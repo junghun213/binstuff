@@ -1,0 +1,31 @@
+<div class="well" id="success_message">
+	<h2 id="notice"><%= notice %></h2>
+</div>
+<div id="record">
+	<div>
+		<h4 id="file_name">File Name:</h4>
+	  	<p id="file_name_uploaded"><%= @record.stuff_file_name %></p>
+	</div>
+	<div class="clear"></div>
+	<div>
+		<h4 id="description_title">Description:</h4>
+		<p id="description"><%= @record.description %></p>
+	</div>
+	<div class="clear"></div>
+	<div>
+		<h4>URL Link:</h4>
+		<p id="info">Provide the following link for others to download:</p>
+		<div class="well link">
+			<p id="new_link"><%= "http://localhost:3000" + @record.stuff.url %></p>
+		</div>
+	</div>
+	<div>
+		<h4 id="file_id">File ID:</h4>
+		<p id="record_id"><%= @record.id %></p>
+	</div>
+	<div class="clear"></div>
+	<div>
+		<%= link_to 'Edit', edit_record_path(@record), :class=> "btn btn-primary"%> |
+		<%= link_to 'Back', records_path, :class=>"btn btn-primary"%>
+	</div>
+</div>

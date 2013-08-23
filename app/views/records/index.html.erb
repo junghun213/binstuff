@@ -1,0 +1,58 @@
+<h1>Upload File:</h1>
+<div id="container">
+  <div class="well file_uploader">
+    <%= form_for @record, :html => { :multipart => true } do |form| %>
+    <h4>Description:</h4>
+      <%= form.text_field :description, :class => 'input-xxlarge'%>
+      <div class="clear"></div>
+      <%= form.file_field :stuff %>
+      <div class="clear"></div>
+      <%= form.submit "Submit", :class=>"btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div id="search_div">
+    <%= form_tag records_path, :method => 'get' do %>
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <p>
+        <%= text_field_tag :search, params[:search], :class => 'input-xxlarge' %>
+        <%= submit_tag "Search", :name => nil, :class=>"btn btn-success search_btn" %>
+      </p>
+    <%end%>
+  </div>
+
+  <h1 id="files">Files:</h1>
+  <div id="table">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th><%= sortable "description", "Description" %></th>
+          <th><%= sortable "id", "File ID" %></th>
+          <th><%= sortable "stuff_file_name", "File Name" %></th>
+          <th><%= sortable "stuff_file_size", "File Size" %></th>
+          <th><%= sortable "created_at", "Date / Time" %></th>
+          <th>Time Remaining</th>
+          <th>Download</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @records.each do |record| %>
+          <tr>
+            <td><%= record.description %></td>
+            <td><%= record.id %></td>
+            <td><%= record.stuff_file_name %></td>
+            <td><%= number_to_human_size(record.stuff_file_size) %></td>
+            <td><%= record.created_at.to_s(:long) %></td>
+            <td><%= ( 120 - (Time.now - record.created_at).round(2)) %></td>
+            <td><%= link_to "Download", record.stuff.url, :class=>"btn btn-warning" %></td>
+            <td><%= link_to 'Destroy', record, method: :delete, :class=>"btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+    <%= will_paginate @records %>
+</div>

@@ -1,0 +1,117 @@
+// Place all the styles related to the Records controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+
+body{
+	padding: 10px;
+}
+.clear{
+	clear:both;
+}
+#record{
+	padding: 5%;
+	padding-top: 0%;
+	border: 1px solid black;
+}
+	#file_name{
+		float: left;
+	}
+	#file_name_uploaded{
+		float: left;
+		margin: 12px 0px 0px 15px; 
+	}
+	#file_id{
+		float: left;
+	}
+	#record_id{
+		float:left;
+		margin: 11px 0px 0px 15px;
+		font-size: 18px;
+	}
+	h4{
+		margin-bottom: 5px;
+	}
+	div{
+		margin-bottom: 15px;
+	}
+	#description_title{
+		float: left;
+	}
+	#description{
+		float: left;
+		margin: 12px 0px 0px 15px;
+	}
+.link{
+	padding: 10px;
+	padding-right: 0px;
+}
+p{
+	font-size: 24px;
+}
+	#info{
+		margin-top: 15px;
+	}
+.btn-primary{
+	color: white;
+}
+.well{
+	margin-bottom: 5px;
+
+}
+#new_link{
+	float: left;
+}
+#table{
+	margin: 0px 20px;
+}
+#container{
+	padding: 15px;
+}
+	.file_uploader{
+		width: 70%;
+	}
+	.search_btn{
+
+	}
+#search{
+	margin-bottom: 0%;
+}
+#search_div{
+	text-align: center;
+	margin-top: 40px;
+}
+#new_record{
+	margin-bottom: 5px;
+}
+#record_description{
+	margin-top: 10px;
+}
+h1{
+	margin-bottom: 0px;
+	font-size: 30px;
+}
+#files{
+	margin-bottom: 10px;
+}
+.pagination{
+	color: black;
+	magin-top: 0px;
+}
+a{
+	color: black;
+}
+.next_page{
+	color: black;
+}
+.current{
+	font-size: 18px;
+}
+a{
+	margin: 0px 10px;
+}
+.file_uploader{
+	width: 50%;
+}
