@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.minutes do
-	runner "Record.where('created_at <= ?', 2.minutes.ago).each {|record| record.destroy}"
+	runner "Record.where('created_at <= ?', 24.hours.ago).each {|record| record.destroy}"
 end	
 
 # every 1.minutes do

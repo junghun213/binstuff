@@ -36,11 +36,13 @@ class RecordsController < ApplicationController
     # end
     respond_to do |format|
       if @record.save
-        format.html { redirect_to @record, notice: 'Record was successfully created.' }
+        format.html { redirect_to records_url, notice: 'Record was successfully created.' }
+        # format.html { redirect_to @record, notice: 'Record was successfully created.' }
         # format.json { render action: 'show', status: :created, location: @record }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @record.errors, status: :unprocessable_entity }
+        format.html { redirect_to records_url, notice: 'Please upload a file.' }
+        # format.html { render action: 'new' }
+        # format.json { render json: @record.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -1,4 +1,6 @@
-<h1>Upload File:</h1>
+<h2>Welcome to Binstuff!</h2>
+<h3>Upload a file:</h3>
+<h4 span style="color:blue"><%= notice %><h4>
 <div id="container">
   <div class="well file_uploader">
     <%= form_for @record, :html => { :multipart => true } do |form| %>
@@ -22,7 +24,7 @@
     <%end%>
   </div>
 
-  <h1 id="files">Files:</h1>
+  <h3 id="files">Files:</h3>
   <div id="table">
     <table class="table table-bordered table-hover">
       <thead>
@@ -32,7 +34,7 @@
           <th><%= sortable "stuff_file_name", "File Name" %></th>
           <th><%= sortable "stuff_file_size", "File Size" %></th>
           <th><%= sortable "created_at", "Date / Time" %></th>
-          <th>Time Remaining</th>
+          <th>Time Remaining (hours) until deletion</th>
           <th>Download</th>
           <th>Delete</th>
         </tr>
@@ -46,7 +48,7 @@
             <td><%= record.stuff_file_name %></td>
             <td><%= number_to_human_size(record.stuff_file_size) %></td>
             <td><%= record.created_at.to_s(:long) %></td>
-            <td><%= ( 120 - (Time.now - record.created_at).round(2)) %></td>
+            <td><%= ((86400 - (Time.now - record.created_at))/3600).round() %></td>
             <td><%= link_to "Download", record.stuff.url, :class=>"btn btn-warning" %></td>
             <td><%= link_to 'Destroy', record, method: :delete, :class=>"btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
           </tr>
